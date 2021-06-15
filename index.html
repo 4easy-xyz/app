@@ -3,11 +3,11 @@
 <script language="javascript">
     const start = new Date().getTime()
     const urls = window.location.href.split("/");
-    let param = getQueryVariable('user')
+    let param = getQueryVariable('key')
    
     
     const ajaxObj = new XMLHttpRequest();
-    ajaxObj.open('post', 'http://www.4easy.xyz/api/app/' + param);
+    ajaxObj.open('get', 'https://www.4easy.xyz/api/app?key=' + param);
     ajaxObj.send();
     ajaxObj.onreadystatechange = function () {
        
