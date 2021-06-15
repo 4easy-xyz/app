@@ -10,17 +10,16 @@
     ajaxObj.open('get', 'https://www.4easy.xyz/api/app' + param);
     ajaxObj.send();
     ajaxObj.onreadystatechange = function () {
-        // 为了保证 数据 完整返回，我们一般会判断 两个值
+       
         if (ajaxObj.readyState == 4 && ajaxObj.status == 200) {
-            // 如果能够进到这个判断 说明 数据 完美的回来了,并且请求的页面是存在的
-            // 5.在注册的事件中 获取 返回的 内容 并修改页面的显示
+           
             console.log('数据返回成功',ajaxObj.responseText);console.log("接口访问耗时",(new Date().getTime() - start) + "ms");
             let val = ajaxObj.responseText
             const value = JSON.parse(val)
             if (value.code == 200) {			
                 toAppUrl(value.result)
             } else {
-                openUrl("http://5v-v.com")
+                openUrl("https://www.4easy.xyz")
                 alert("网络不太好！")
             }
         }
@@ -142,7 +141,6 @@
 
 </style>
 <style>
-    /*stylecolor*/
     ._ymcart_coupon_box{position:fixed;left:0;top:0;width:100%;height:100%;z-index:479999;text-align:center;display: none;}
     ._ymcart_coupon_box ._ymcart_coupon_bg{width:100%;height:100%;background:#000; opacity:.7;}
     ._ymcart_coupon_overlay{width:640px;height:508px;padding:0;position:absolute;left:50%;top:50%;margin:auto;-webkit-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);transform:translate(-50%,-50%);box-sizing:border-box;background:url(//us01.imgcdn.ymcart.com/0/popup/popup_012_bg.png) no-repeat scroll center bottom #fee5e0;background-size:100%;text-align:center;border-radius:20px;}
@@ -168,31 +166,31 @@
     ._ymcart_coupon_overlay ._ymcart_coupon_close_button svg{width:30px;height:30px;fill:#fff;}
     ._ymcart_coupon_overlay ._ymcart_coupon_close_button span{display:inline-block;font-size:20px;}
 
-    /*黄色*/
+   
 
     ._ymcart_popup_yellow_email_btn{ background:#f8cb1c !important;}
 
-    /*蓝色*/
+   
 
     ._ymcart_popup_blue_email_btn{ background:#2ec4ff !important;}
 
-    /*红色*/
+   
 
     ._ymcart_popup_red_email_btn{ background:#ff6f6f !important;}
 
-    /*绿色*/
+    
 
     ._ymcart_popup_green_email_btn{ background:#7fc24c !important;}
 
-    /*紫色*/
+   
 
     ._ymcart_popup_purple_email_btn{ background:#aa8cdb !important;}
 
-    /*黑色*/
+   
 
     ._ymcart_popup_black_email_btn{ background:#000 !important;}
 
-    /*粉色*/
+  
 
     ._ymcart_popup_pink_email_btn{ background:#e369a2 !important;}
 
