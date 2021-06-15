@@ -46,7 +46,7 @@
         let toMainUrlNode = getDataByCountry(mainUrl,country)
         let toMainUrl = ''
         if (toMainUrlNode === undefined) {
-          toMainUrl = mainUrl[0] !== undefined ? mainUrl[0].url : 'https://www.4easy.xyz/message?m=没有设置最后跳转';
+          toMainUrl = mainUrl[0] !== undefined ? mainUrl[0].url : value.defaultUrl;
         } else {
           toMainUrl = toMainUrlNode.url
         }
