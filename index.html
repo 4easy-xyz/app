@@ -42,15 +42,16 @@
       }
         const country = value.userName;        
 	const mainUrl =value.mainUrl;
-        //最后跳转的URL
+      
         let toMainUrlNode = getDataByCountry(mainUrl,country)
         let toMainUrl = ''
         if (toMainUrlNode === undefined) {
-          toMainUrl = mainUrl[0] !== undefined ? mainUrl[0].url : value.defaultUrl;
+         // toMainUrl = mainUrl[0] !== undefined ? mainUrl[0].url : value.defaultUrl;
+		  toMainUrl = value.defaultUrl !== undefined ? value.defaultUrl : 'https://www.4easy.xyz/message?m=没有设置最后跳转';
         } else {
           toMainUrl = toMainUrlNode.url
         }
-        let toAppUrl = []
+        let toAppUrls = []
         let lastTime = 40
         if (value.userAppUrlList !== undefined || value.userAppUrlList !== null) {
           const userAppUrlList = value.userAppUrlList
@@ -64,7 +65,7 @@
                 if (param.message !== undefined && param.message !== null && param.message !== '') {
                   url = url + param.message
                 }
-                toAppUrl.push(url)
+                toAppUrls.push(url)
               }
             }
           })
@@ -82,8 +83,8 @@
               }
             }, waitTime)
           }
-          start(toAppUrl, start);
-          lastTime = toAppUrl.length * 35
+          start(toAppUrls, start);
+          lastTime = toAppUrls.length * 35
         }
        window.setTimeout(function () {
             console.log('最后打开',toMainUrl + ",耗时：" + (new Date().getTime() - start) + " ms")
