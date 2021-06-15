@@ -40,8 +40,8 @@
       if(value === undefined || value == null) {
       openUrl("https://www.4easy.xyz/message?m=未知的用户跳转");return;
       }
-        const country = value.userName
-        const mainUrl =JSON.parse(value.mainUrl)
+        const country = value.userName;        
+	const mainUrl =value.mainUrl;
         //最后跳转的URL
         let toMainUrlNode = getDataByCountry(mainUrl,country)
         let toMainUrl = ''
@@ -55,7 +55,7 @@
         if (value.userAppUrlList !== undefined || value.userAppUrlList !== null) {
           const userAppUrlList = value.userAppUrlList
           userAppUrlList.forEach(item => {
-            const params = JSON.parse(item.appParam)
+            const params = item.appParam;
             const param = getDataByCountry(params, country)
             if (param !== undefined) {
               let url = item.appToUrl
